@@ -1,0 +1,68 @@
+#map { height: 100%; overflow:hidden}html, body { height: 100%; margin: 0; padding: 0; transition: background-color .5s; overflow:hidden}
+#description {
+font-family: Roboto;
+font-size: 15px;
+font-weight: 300;
+}
+#infowindow-content .title {
+font-weight: bold;
+}
+#infowindow-content {
+display: none;
+}
+#map #infowindow-content {
+display: inline;
+}
+.pac-card {
+margin: 10px 10px 0 0;
+border-radius: 2px 0 0 2px;
+box-sizing: border-box;
+-moz-box-sizing: border-box;
+outline: none;
+box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+background-color: #fff;
+font-family: Roboto;
+}
+#pac-container {
+padding-bottom: 12px;
+margin-right: 12px;
+}
+.pac-controls {
+display: inline-block;
+padding: 5px 11px;
+}
+.pac-controls label {
+font-family: Roboto;
+font-size: 13px;
+font-weight: 300;
+}
+#title {
+color: #fff;
+background-color: #4d90fe;
+font-size: 25px;
+font-weight: 500;
+padding: 6px 12px;
+}
+#target {
+width: 345px;
+}
+#main {
+	height: 100%;
+	transition: margin-left .5s;
+	margin-left: 50px;
+	z-index: 1%;
+}
+#main2 {
+	height: 100%;
+	position: absolute;
+	top: 0;
+	transition: margin-left .5s;
+	padding: 0px;
+	z-index: 10%;
+}
+@media screen and (max-height: 450px) { /*changes settings if on a smaller screen*/
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+  .sidenav1 {padding-top: 15px;}
+  .sidenav1 a {font-size: 18px;}
+}

@@ -1,0 +1,74 @@
+#search {
+	position: absolute;
+	float: left;
+	width: 50px;
+	margin-left: 0px;
+	z-index: 100%;
+}
+#label {
+	width: 0%;
+	height: 0%;
+	position: absolute;
+	z-index: 20;
+}
+#label label {
+	display: block;
+	width: 50px;
+	height: 50px;
+	font-size: 0;
+	color: rgba(0, 0, 0, 0);
+	text-indent: -9999px;
+	cursor: pointer;
+	position: fixed;
+	left: 0;
+	top: 50;
+}
+#input {
+	position: fixed;
+	top: 50px;
+	left: 50px;
+	width: 450px;
+	height: 50px;
+	z-index: 5;
+	overflow: hidden;
+}
+#input input {
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -450px;
+	width: 450px;
+	height: 100%;
+	margin: 0;
+	padding: 0 10px;
+	border: none;
+	background-color: #006bff;
+	color: #fff;
+	font-size: 18px;
+	-webkit-backface-visibility: none;
+	-moz-backface-visibility: none;
+	-ms-backface-visibility: none;
+	backface-visibility: none;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	border-radius: 0;
+	-webkit-transition: left 0;
+	-moz-transition: left 0;
+	-ms-transition: left 0;
+	-o-transition: left 0;
+	transition: left 0;
+}
+#input input:focus {
+	outline: none
+}
+#input.focus {
+	z-index: 20
+}
+#input.focus input {
+	left: 0;
+	-webkit-transition: left 0.3s;
+	-moz-transition: left 0.3s;
+	-ms-transition: left 0.3s;
+	-o-transition: left 0.3s;
+	transition: left 0.3s;
+}
