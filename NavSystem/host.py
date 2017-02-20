@@ -8,10 +8,4 @@ class host():
         return open('index.html')
 
 if __name__ == '__main__':
-    cherrypy.quickstart(host(),config={
-
-        '/css':
-        { 'tools.staticdir.on':True,
-          'tools.staticdir.dir': "/css"
-        },
-    })
+    cherrypy.quickstart(host())
