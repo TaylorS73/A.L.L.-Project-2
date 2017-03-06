@@ -9,7 +9,8 @@ My api key is AIzaSyCOKZ9KnQ0OJPf16yB6AnLcFEHdty1rGG4
 		<meta name="Coventry univerisy Way finder" content="">
 		<meta name="Group 3" content="">
 		<title>NavSystem</title>
- 
+
+		<link rel="stylesheet" href="css/hamburgers.css">
 		<link rel="stylesheet" href="css/sidebar.css">
 		<link rel="stylesheet" href="css/style.css">
 		<link rel="stylesheet" href="css/iconbar.css">
@@ -22,7 +23,7 @@ My api key is AIzaSyCOKZ9KnQ0OJPf16yB6AnLcFEHdty1rGG4
 			<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCOKZ9KnQ0OJPf16yB6AnLcFEHdty1rGG4&libraries=places&callback=initAutocomplete"async defer></script>
 		</div>
 		<div id="main2"class="icon-bar"><!--icon bar-->
-			  <a class="active" href="#"><span class="fa fa-reorder" onclick="openNav()"></a> 
+			  <a class="active" href="#"><span class="fa fa-bars" onclick="Nav()"></a> 
 			  <a href="#">
 				<i class="fa fa-search"></i>
 				<form id="search" action="#">
@@ -35,7 +36,6 @@ My api key is AIzaSyCOKZ9KnQ0OJPf16yB6AnLcFEHdty1rGG4
 		</div>
 		<div id="main2"class="sidenav"><!--menu-->
 			<div id="mySidenav" class="sidenav">
-			  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 			  <a href="http://www.coventry.ac.uk/"><img src="res/images/logo.png" alt="Uni Logo" style="width:210px;height:130px;"></a>
 			  <a href="#"><i class="fa fa-key"></i> Key</a>
 			  <a href="#" class="fa fa-star" onclick="openfav()"> Favourites</a>
@@ -47,25 +47,7 @@ My api key is AIzaSyCOKZ9KnQ0OJPf16yB6AnLcFEHdty1rGG4
 			  <a href="#">.</a>
 			</div>
 		</div>
-		<div id="main2"class="sidenav"><!--easter egg-->
-			<div id="easteregg" class="sidenav"><!--menu sidebar-->
-				<a href="javascript:void(0)" class="closebtn" onclick="closeeasteregg()">&times;</a>
-				<FORM NAME="tic" method="post" style="position: absolute; left: 10; top: 250;">
-					<INPUT TYPE="button" NAME="sqr1" class="tictac" value="     " onClick="if(document.tic.sqr1.value == '     ' && turn == 0 && mode == 1) {document.tic.sqr1.value = ' X '; sqr1T = 1; turn = 1; vari(); check();} else if(document.tic.sqr1.value == '     ' && turn == 1 && mode == 2) {document.tic.sqr1.value = ' X '; sqr1T = 1; turn = 0; vari(); player1Check()} else if(document.tic.sqr1.value == '     ' && turn == 0 && mode == 2) {document.tic.sqr1.value = ' O '; sqr1T = 1; turn = 1; vari(); player1Check()} drawCheck()">
-					<INPUT TYPE="button" NAME="sqr2" class="tictac" value="     " onClick="if(document.tic.sqr2.value == '     ' && turn == 0 && mode == 1) {document.tic.sqr2.value = ' X '; sqr2T = 1; turn = 1; vari(); check();} else if(document.tic.sqr2.value == '     ' && turn == 1 && mode == 2) {document.tic.sqr2.value = ' X '; sqr2T = 1; turn = 0; vari(); player1Check()} else if(document.tic.sqr2.value == '     ' && turn == 0 && mode == 2) {document.tic.sqr2.value = ' O '; sqr2T = 1; turn = 1; vari(); player1Check()} drawCheck()">
-					<INPUT TYPE="button" NAME="sqr3" class="tictac" value="     " onClick="if(document.tic.sqr3.value == '     ' && turn == 0 && mode == 1) {document.tic.sqr3.value = ' X '; sqr3T = 1; turn = 1; vari(); check();} else if(document.tic.sqr3.value == '     ' && turn == 1 && mode == 2) {document.tic.sqr3.value = ' X '; sqr3T = 1; turn = 0; vari(); player1Check()} else if(document.tic.sqr3.value == '     ' && turn == 0 && mode == 2) {document.tic.sqr3.value = ' O '; sqr3T = 1; turn = 1; vari(); player1Check()} drawCheck()"><br />
-					<INPUT TYPE="button" NAME="sqr4" class="tictac" value="     " onClick="if(document.tic.sqr4.value == '     ' && turn == 0 && mode == 1) {document.tic.sqr4.value = ' X '; sqr4T = 1; turn = 1; vari(); check();} else if(document.tic.sqr4.value == '     ' && turn == 1 && mode == 2) {document.tic.sqr4.value = ' X '; sqr4T = 1; turn = 0; vari(); player1Check()} else if(document.tic.sqr4.value == '     ' && turn == 0 && mode == 2) {document.tic.sqr4.value = ' O '; sqr4T = 1; turn = 1; vari(); player1Check()} drawCheck()">
-					<INPUT TYPE="button" NAME="sqr5" class="tictac" value="     " onClick="if(document.tic.sqr5.value == '     ' && turn == 0 && mode == 1) {document.tic.sqr5.value = ' X '; sqr5T = 1; turn = 1; vari(); check();} else if(document.tic.sqr5.value == '     ' && turn == 1 && mode == 2) {document.tic.sqr5.value = ' X '; sqr5T = 1; turn = 0; vari(); player1Check()} else if(document.tic.sqr5.value == '     ' && turn == 0 && mode == 2) {document.tic.sqr5.value = ' O '; sqr5T = 1; turn = 1; vari(); player1Check()} drawCheck()">
-					<INPUT TYPE="button" NAME="sqr6" class="tictac" value="     " onClick="if(document.tic.sqr6.value == '     ' && turn == 0 && mode == 1) {document.tic.sqr6.value = ' X '; sqr6T = 1; turn = 1; vari(); check();} else if(document.tic.sqr6.value == '     ' && turn == 1 && mode == 2) {document.tic.sqr6.value = ' X '; sqr6T = 1; turn = 0; vari(); player1Check()} else if(document.tic.sqr6.value == '     ' && turn == 0 && mode == 2) {document.tic.sqr6.value = ' O '; sqr6T = 1; turn = 1; vari(); player1Check()} drawCheck()"><br />
-					<INPUT TYPE="button" NAME="sqr7" class="tictac" value="     " onClick="if(document.tic.sqr7.value == '     ' && turn == 0 && mode == 1) {document.tic.sqr7.value = ' X '; sqr7T = 1; turn = 1; vari(); check();} else if(document.tic.sqr7.value == '     ' && turn == 1 && mode == 2) {document.tic.sqr7.value = ' X '; sqr7T = 1; turn = 0; vari(); player1Check()} else if(document.tic.sqr7.value == '     ' && turn == 0 && mode == 2) {document.tic.sqr7.value = ' O '; sqr7T = 1; turn = 1; vari(); player1Check()} drawCheck()">
-					<INPUT TYPE="button" NAME="sqr8" class="tictac" value="     " onClick="if(document.tic.sqr8.value == '     ' && turn == 0 && mode == 1) {document.tic.sqr8.value = ' X '; sqr8T = 1; turn = 1; vari(); check();} else if(document.tic.sqr8.value == '     ' && turn == 1 && mode == 2) {document.tic.sqr8.value = ' X '; sqr8T = 1; turn = 0; vari(); player1Check()} else if(document.tic.sqr8.value == '     ' && turn == 0 && mode == 2) {document.tic.sqr8.value = ' O '; sqr8T = 1; turn = 1; vari(); player1Check()} drawCheck()">
-					<INPUT TYPE="button" NAME="sqr9" class="tictac" value="     " onClick="if(document.tic.sqr9.value == '     ' && turn == 0 && mode == 1) {document.tic.sqr9.value = ' X '; sqr9T = 1; turn = 1; vari(); check();} else if(document.tic.sqr9.value == '     ' && turn == 1 && mode == 2) {document.tic.sqr9.value = ' X '; sqr9T = 1; turn = 0; vari(); player1Check()} else if(document.tic.sqr9.value == '     ' && turn == 0 && mode == 2) {document.tic.sqr9.value = ' O '; sqr9T = 1; turn = 1; vari(); player1Check()} drawCheck()">
-				</form>
-			</div>
-		</div>
-		<script src="js/easteregg.js"></script>
 		<script src="js/sidebar.js"></script>
-		<script src="js/findlocation.js"></script>
 		<script src="js/search.js"></script>
 		<script src="js/gmap.js"></script>
 	</body>

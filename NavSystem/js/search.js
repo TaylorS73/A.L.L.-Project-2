@@ -1,10 +1,7 @@
 (function(window){
 	var searchEl = document.querySelector("#input");
 	var labelEl = document.querySelector("#label");
-<<<<<<< HEAD
 	
-=======
->>>>>>> origin/master
 	// register clicks and toggle classes
 	labelEl.addEventListener("click",function(){
 		if (classie.has(searchEl,"focus")) {
