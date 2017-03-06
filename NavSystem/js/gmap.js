@@ -1,6 +1,7 @@
 function initAutocomplete() {
 var map = new google.maps.Map(document.getElementById('map'), {
   center: {lat: 52.407518, lng: -1.504741},
+<<<<<<< HEAD
   zoom: 17,
   mapTypeControl: false,
   mapTypeId: 'roadmap'
@@ -10,6 +11,17 @@ var input = document.getElementById('#label');
 var searchBox = new google.maps.places.SearchBox(document.getElementById('search-terms'));
 
 // passes the SearchBox results towards current map's viewport.
+=======
+  zoom: 16,
+  mapTypeControl: false,
+  mapTypeId: 'roadmap'
+});
+// Clinks the search box to the UI element
+var input = document.getElementById('#label');
+var searchBox = new google.maps.places.SearchBox(document.getElementById('search-terms'));
+
+// Bias the SearchBox results towards current map's viewport.
+>>>>>>> origin/master
 map.addListener('bounds_changed', function() {
   searchBox.setBounds(map.getBounds());
 });
@@ -52,6 +64,7 @@ searchBox.addListener('places_changed', function() {
   });
   map.fitBounds(bounds);
 });
+<<<<<<< HEAD
 }
 function getLocation() {
 	if (navigator.geolocation) {
@@ -72,4 +85,6 @@ function getLocation() {
 	} else {
 		alert('Geo Location feature is not supported in this browser.');
 	}
+=======
+>>>>>>> origin/master
 }
