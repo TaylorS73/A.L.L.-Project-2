@@ -1,7 +1,7 @@
 var map;
 var university = {lat: 52.407518, lng: -1.504741};
 
-function addYourLocationButton(map, marker) {
+function YourLocationButton(map, marker) {
     var controlDiv = document.createElement('div');
 
     var firstChild = document.createElement('button');
@@ -65,7 +65,7 @@ function initMap() {
         map: map,
         animation: google.maps.Animation.DROP,
     });
-    addYourLocationButton(map, myMarker);
+    YourLocationButton(map, myMarker);
 }
 $(document).ready(function(e) {
     initMap();
