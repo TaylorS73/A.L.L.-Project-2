@@ -31,7 +31,7 @@ li a:hover:not(.active) {
 img {
 	position: absolute;
 	top: 45;
-	right: 0;
+	right: 5;
 	width:210px;
 	height:130px;
 }
