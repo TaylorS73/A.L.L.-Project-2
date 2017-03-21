@@ -29,8 +29,8 @@ function addYourLocationButton(map, marker) {
     secondChild.id = 'you_location_img';
     firstChild.appendChild(secondChild);
 
-    google.maps.event.addListener(map, 'dragend', function() {
-        $('#you_location_img').css('background-position', '0px 0px');
+    google.maps.event.addListener(map, 'center_changed', function () {
+        secondChild.style['background-position'] = '0 0';
     });
     firstChild.addEventListener('click', function() {
         var imgX = '0';
