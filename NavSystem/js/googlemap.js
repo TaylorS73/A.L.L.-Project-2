@@ -59,7 +59,8 @@ function YourLocationButton(map, marker) {
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
         zoom: 17,
-        center: university
+        center: university,
+		mapTypeControl: false,
     });
     var myMarker = new google.maps.Marker({
         map: map,

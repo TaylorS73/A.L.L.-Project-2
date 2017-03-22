@@ -8,14 +8,14 @@ My api key is AIzaSyCOKZ9KnQ0OJPf16yB6AnLcFEHdty1rGG4
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="Coventry univerisy Way finder" content="">
 		<meta name="Group 3" content="">
-		<title>NavSystem</title>
+		<title>Uni SatNav</title>
 
-		<link rel="stylesheet" href="css/hamburgers.css">
 		<link rel="stylesheet" href="css/sidebar.css">
 		<link rel="stylesheet" href="css/style.css">
 		<link rel="stylesheet" href="css/iconbar.css">
 		<link rel="stylesheet" href="css/search.css">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><!--imports icon libraries-->
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"><!--imports icon libraries-->
 	</head>
 	<body>
 		<div id="main"><!--map-->
@@ -23,7 +23,9 @@ My api key is AIzaSyCOKZ9KnQ0OJPf16yB6AnLcFEHdty1rGG4
 			<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCOKZ9KnQ0OJPf16yB6AnLcFEHdty1rGG4&libraries=places&callback=initMap"async defer></script>
 		</div>
 		<div id="main2"class="icon-bar"><!--icon bar-->
-			  <a class="active" href="#"><span class="fa fa-bars" onclick="Nav()"></a> 
+			  <div class="active">
+				<a class="fa fa-bars" onclick="Nav()"></a> 
+			  </div>
 			  <a href="#">
 				<i class="fa fa-search"></i>
 				<form id="search" action="#">
@@ -31,21 +33,66 @@ My api key is AIzaSyCOKZ9KnQ0OJPf16yB6AnLcFEHdty1rGG4
 					<div id="input"><input type="text" name="search-terms" id="search-terms" placeholder="Enter location..."></div>
 				</form>
 			  </a>
-			</div>
+			  <a href="#" onclick="opendirect1()"><i class="material-icons" style="font-size:27px">directions</i></a>
 		</div>
 		<div id="main2"class="sidenav"><!--menu-->
 			<div id="mySidenav" class="sidenav">
 			  <a href="http://www.coventry.ac.uk/"><img src="res/images/logo.png" alt="Uni Logo" style="width:210px;height:130px;"></a>
+			  <p> </p>
 			  <a href="key.html"><i class="fa fa-key"></i> Key</a>
 			  <a href="#" class="fa fa-star" onclick="openfav()"> Favourites</a>
 			</div>
 		</div>
 		<div id="main2"class="sidenav1"><!--Favourites-->
 			<div id="fav" class="sidenav1"><!--menu sidebar-->
-			  <a href="#" onclick="thehub()">the hub</a>
-			  <a href="#">.</a>
+			  <div style="margin-left: 35px; color: grey;">
+				<h1>Favourites</h1>
+				<p>Use These Links to plot directions from your current location to the specified location of your choice</p>
+			  	<table>
+					  <tr>
+						<th><a href="#" onclick="th()">The Hub</a></th>
+						<th><a href="#" onclick="th()">Library</a></th>
+						<th><a href="#" onclick="th()">Student Center</a></th>
+						<th><a href="#" onclick="th()">Th</a></th>
+						<th><a href="#" onclick="th()">Th</a></th>
+					  </tr>
+					  <tr>
+						<td><a href="#" onclick="th()">Th</a></td>
+						<th><a href="#" onclick="th()">Th</a></th>
+						<th><a href="#" onclick="th()">Th</a></th>
+						<th><a href="#" onclick="th()">Th</a></th>
+						<th><a href="#" onclick="th()">Th</a></th>
+					  </tr>
+				</table>
+			 </div>
 			</div>
 		</div>
+		<div id="main2"class="sidenav2"><!--directions-->
+			<div id="directions" class="sidenav2">
+			  <a href="http://www.coventry.ac.uk/"><img src="res/images/logo.png" alt="Uni Logo" style="width:210px;height:130px;"></a>
+			  <a href="#"></a>
+			  <form id="mode" action="" style="color:grey;margin-left:60px;">
+					<label class="radio-inline" style="">
+					  <input type="radio" name="optradio">Driving
+					</label>
+					<label class="radio-inline">
+					  <input type="radio" name="optradio">Walking
+					</label>
+		   	  </form>
+			  <form id="start">
+					<input type="text" name="search" placeholder="From..">
+			  </form>
+			  <form id="end">
+					<input type="text" name="search" placeholder="To..">
+			  </form>
+			  <button class="button" onclick="directions()">
+				  <i></i>Get Directions
+			  </button>
+			</div>
+			<div style="width: 600px;">
+				<div id="newmap" style="width: 100%; height: 600px;"></div> 
+			<div id="panel" style="width: 300px; float: right;"></div>
+		</div>	
 		<script src="js/sidebar.js"></script>
 		<script src="js/search.js"></script>
 		<script src="js/googlemap.js"></script>
