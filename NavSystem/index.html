@@ -10,6 +10,7 @@ My api key is AIzaSyCOKZ9KnQ0OJPf16yB6AnLcFEHdty1rGG4
 		<meta name="Group 3" content="">
 		<title>Uni SatNav</title>
 
+		<link rel="shortcut icon" type="image/png" href="res/images/favicon.png"/>
 		<link rel="stylesheet" href="css/sidebar.css">
 		<link rel="stylesheet" href="css/style.css">
 		<link rel="stylesheet" href="css/iconbar.css">
@@ -17,7 +18,7 @@ My api key is AIzaSyCOKZ9KnQ0OJPf16yB6AnLcFEHdty1rGG4
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><!--imports icon libraries-->
 		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"><!--imports icon libraries-->
 	</head>
-	<body>
+	<body onload="openNav()">
 		<div id="main"><!--map-->
 			<div id="map"></div>
 			<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCOKZ9KnQ0OJPf16yB6AnLcFEHdty1rGG4&libraries=places&callback=initMap"async defer></script>
@@ -38,13 +39,12 @@ My api key is AIzaSyCOKZ9KnQ0OJPf16yB6AnLcFEHdty1rGG4
 		<div id="main2"class="sidenav"><!--menu-->
 			<div id="mySidenav" class="sidenav">
 			  <a href="http://www.coventry.ac.uk/"><img src="res/images/logo.png" alt="Uni Logo" style="width:210px;height:130px;"></a>
-			  <p> </p>
 			  <a href="key.html"><i class="fa fa-key"></i> Key</a>
 			  <a href="#" class="fa fa-star" onclick="openfav()"> Favourites</a>
 			</div>
 		</div>
 		<div id="main2"class="sidenav1"><!--Favourites-->
-			<div id="fav" class="sidenav1"><!--menu sidebar-->
+			<div id="fav" class="sidenav1">
 			  <div style="margin-left: 35px; color: grey;">
 				<h1>Favourites</h1>
 				<p>Use These Links to plot directions from your current location to the specified location of your choice</p>
@@ -77,7 +77,8 @@ My api key is AIzaSyCOKZ9KnQ0OJPf16yB6AnLcFEHdty1rGG4
 		<div id="main2"class="sidenav2"><!--directions-->
 			<div id="directions" class="sidenav2">
 			  <a href="http://www.coventry.ac.uk/"><img src="res/images/logo.png" alt="Uni Logo" style="width:210px;height:130px;"></a>
-			  <a href="#"></a>
+			  <div style="padding:7px;"></div>
+			  <p style="color:grey;margin-left:1px;">Use This Section to plot directions to your prefered locations..</p>
 			  <div id="mode-selector" class="controls" style="color:grey;margin-left:60px;">
 				  <input type="radio" name="type" id="changemode-walking" checked="checked">
 				  <label for="changemode-walking">Walking</label>
@@ -86,16 +87,13 @@ My api key is AIzaSyCOKZ9KnQ0OJPf16yB6AnLcFEHdty1rGG4
 			  </div>
 			  <div style="padding:7px;"></div> 
 			  <form>
-					<input id="origin-input" type="text" class="controls" placeholder="Enter an origin location..">
+					<input id="destination-input" type="text" class="controls" placeholder="To..">
+					<div style="padding:2px;"></div> 
+					<input id="origin-input" type="text" class="controls" placeholder="From..">
 			  </form>
-			  <form>
-					<input id="destination-input" type="text" class="controls" placeholder="Enter a destination location..">
-			  </form>
-			  <button class="button" onclick="AutocompleteDirectionsHandler()">
-				  <i></i>Get Directions
-			  </button>
+			  <div id="panel" style="background-color:white;"></div>
 			</div>
-		</div>	
+		</div>
 		<script src="js/sidebar.js"></script>
 		<script src="js/search.js"></script>
 		<script src="js/googlemap.js"></script>

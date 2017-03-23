@@ -4,35 +4,35 @@ var university = {lat: 52.407518, lng: -1.504741};
 function YourLocationButton(map, marker) {
     var controlDiv = document.createElement('div');
 
-    var firstChild = document.createElement('button');
-    firstChild.style.backgroundColor = '#fff';
-    firstChild.style.border = 'none';
-    firstChild.style.outline = 'none';
-    firstChild.style.width = '28px';
-    firstChild.style.height = '28px';
-    firstChild.style.borderRadius = '2px';
-    firstChild.style.boxShadow = '0 1px 4px rgba(0,0,0,0.3)';
-    firstChild.style.cursor = 'pointer';
-    firstChild.style.marginRight = '10px';
-    firstChild.style.padding = '0px';
-    firstChild.title = 'Your Location';
-    controlDiv.appendChild(firstChild);
+    var yourlocationbutton = document.createElement('button');
+    yourlocationbutton.style.backgroundColor = '#fff';
+    yourlocationbutton.style.border = 'none';
+    yourlocationbutton.style.outline = 'none';
+    yourlocationbutton.style.width = '28px';
+    yourlocationbutton.style.height = '28px';
+    yourlocationbutton.style.borderRadius = '2px';
+    yourlocationbutton.style.boxShadow = '0 1px 4px rgba(0,0,0,0.3)';
+    yourlocationbutton.style.cursor = 'pointer';
+    yourlocationbutton.style.marginRight = '10px';
+    yourlocationbutton.style.padding = '0px';
+    yourlocationbutton.title = 'Your Location';
+    controlDiv.appendChild(yourlocationbutton);
 
-    var secondChild = document.createElement('div');
-    secondChild.style.margin = '5px';
-    secondChild.style.width = '18px';
-    secondChild.style.height = '18px';
-    secondChild.style.backgroundImage = 'url(https://maps.gstatic.com/tactile/mylocation/mylocation-sprite-1x.png)';
-    secondChild.style.backgroundSize = '180px 18px';
-    secondChild.style.backgroundPosition = '0px 0px';
-    secondChild.style.backgroundRepeat = 'no-repeat';
-    secondChild.id = 'you_location_img';
-    firstChild.appendChild(secondChild);
+    var yourlocationdiv = document.createElement('div');
+    yourlocationdiv.style.margin = '5px';
+    yourlocationdiv.style.width = '18px';
+    yourlocationdiv.style.height = '18px';
+    yourlocationdiv.style.backgroundImage = 'url(https://maps.gstatic.com/tactile/mylocation/mylocation-sprite-1x.png)';
+    yourlocationdiv.style.backgroundSize = '180px 18px';
+    yourlocationdiv.style.backgroundPosition = '0px 0px';
+    yourlocationdiv.style.backgroundRepeat = 'no-repeat';
+    yourlocationdiv.id = 'you_location_img';
+    yourlocationbutton.appendChild(yourlocationdiv);
 
     google.maps.event.addListener(map, 'center_changed', function () {
-        secondChild.style['background-position'] = '0 0';
+        yourlocationdiv.style['background-position'] = '0 0';
     });
-    firstChild.addEventListener('click', function() {
+    yourlocationbutton.addEventListener('click', function() {
         var imgX = '0';
         var animationInterval = setInterval(function(){
             if(imgX == '-18') imgX = '0';
@@ -67,13 +67,13 @@ function initMap() {
         animation: google.maps.Animation.DROP,
     });
     YourLocationButton(map, myMarker);
-	new AutocompleteDirectionsHandler(map);
+	new directions(map);
 }
-$(document).ready(function(e) {
-    initMap();
-}); 
+//$(document).ready(function(e) {
+//    initMap();
+//});
 
-function AutocompleteDirectionsHandler(map, marker) {
+function directions(map, marker) {
   this.map = map;
   this.originPlaceId = null;
   this.destinationPlaceId = null;
@@ -84,6 +84,7 @@ function AutocompleteDirectionsHandler(map, marker) {
   this.directionsService = new google.maps.DirectionsService;
   this.directionsDisplay = new google.maps.DirectionsRenderer;
   this.directionsDisplay.setMap(map);
+  this.directionsDisplay.setPanel(document.getElementById('panel'));
 
   var originAutocomplete = new google.maps.places.Autocomplete(originInput, {placeIdOnly: true});
   var destinationAutocomplete = new google.maps.places.Autocomplete(destinationInput, {placeIdOnly: true});
@@ -94,14 +95,9 @@ function AutocompleteDirectionsHandler(map, marker) {
   this.setupPlaceChangedListener(originAutocomplete, 'ORIG');
   this.setupPlaceChangedListener(destinationAutocomplete, 'DEST');
 
-  this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(originInput);
-  this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(destinationInput);
-  this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(modeSelector);
 }
 
-// Sets a listener on a radio button to change the filter type on Places
-// Autocomplete.
-AutocompleteDirectionsHandler.prototype.setupClickListener = function(id, mode) {
+directions.prototype.setupClickListener = function(id, mode) {
   var radioButton = document.getElementById(id);
   var me = this;
   radioButton.addEventListener('click', function() {
@@ -110,7 +106,7 @@ AutocompleteDirectionsHandler.prototype.setupClickListener = function(id, mode) 
   });
 };
 
-AutocompleteDirectionsHandler.prototype.setupPlaceChangedListener = function(autocomplete, mode) {
+directions.prototype.setupPlaceChangedListener = function(autocomplete, mode) {
   var me = this;
   autocomplete.bindTo('bounds', this.map);
   autocomplete.addListener('place_changed', function() {
@@ -129,7 +125,7 @@ AutocompleteDirectionsHandler.prototype.setupPlaceChangedListener = function(aut
 
 };
 
-AutocompleteDirectionsHandler.prototype.route = function() {
+directions.prototype.route = function() {
   if (!this.originPlaceId || !this.destinationPlaceId) {
     return;
   }
@@ -147,3 +143,7 @@ AutocompleteDirectionsHandler.prototype.route = function() {
     }
   });
 };
+
+function search(){
+	
+}
