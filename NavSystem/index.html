@@ -53,15 +53,22 @@ My api key is AIzaSyCOKZ9KnQ0OJPf16yB6AnLcFEHdty1rGG4
 						<th><a href="#" onclick="th()">The Hub</a></th>
 						<th><a href="#" onclick="th()">Library</a></th>
 						<th><a href="#" onclick="th()">Student Center</a></th>
-						<th><a href="#" onclick="th()">Th</a></th>
-						<th><a href="#" onclick="th()">Th</a></th>
+						<th><a href="#" onclick="th()">ECB</a></th>
+						<th><a href="#" onclick="th()">Morris Foss</a></th>
 					  </tr>
 					  <tr>
-						<td><a href="#" onclick="th()">Th</a></td>
-						<th><a href="#" onclick="th()">Th</a></th>
-						<th><a href="#" onclick="th()">Th</a></th>
-						<th><a href="#" onclick="th()">Th</a></th>
-						<th><a href="#" onclick="th()">Th</a></th>
+						<th><a href="#" onclick="th()">Sainsbury's</a></th>
+						<th><a href="#" onclick="th()">Delimarche</a></th>
+						<th><a href="#" onclick="th()">Starbucks</a></th>
+						<th><a href="#" onclick="th()">Tesco Express</a></th>
+						<th><a href="#" onclick="th()">The Deli</a></th>
+					  </tr>
+					  <tr>
+						<th><a href="#" onclick="th()">Gulson Road student car park</a></th>
+						<th><a href="#" onclick="th()">Grove Street Car Park</a></th>
+						<th><a href="#" onclick="th()">Gosford Street Car Park</a></th>
+						<th><a href="#" onclick="th()">Gulson Road (Front &amp; Back)</a></th>
+						<th><a href="#" onclick="th()">Gosford Street Car Park</a></th>
 					  </tr>
 				</table>
 			 </div>
@@ -71,31 +78,26 @@ My api key is AIzaSyCOKZ9KnQ0OJPf16yB6AnLcFEHdty1rGG4
 			<div id="directions" class="sidenav2">
 			  <a href="http://www.coventry.ac.uk/"><img src="res/images/logo.png" alt="Uni Logo" style="width:210px;height:130px;"></a>
 			  <a href="#"></a>
-			  <form id="mode" action="" style="color:grey;margin-left:60px;">
-					<label class="radio-inline" style="">
-					  <input type="radio" name="optradio">Driving
-					</label>
-					<label class="radio-inline">
-					  <input type="radio" name="optradio">Walking
-					</label>
-		   	  </form>
-			  <form id="start">
-					<input type="text" name="search" placeholder="From..">
+			  <div id="mode-selector" class="controls" style="color:grey;margin-left:60px;">
+				  <input type="radio" name="type" id="changemode-walking" checked="checked">
+				  <label for="changemode-walking">Walking</label>
+				  <input type="radio" name="type" id="changemode-driving">
+				  <label for="changemode-driving">Driving</label>
+			  </div>
+			  <div style="padding:7px;"></div> 
+			  <form>
+					<input id="origin-input" type="text" class="controls" placeholder="Enter an origin location..">
 			  </form>
-			  <form id="end">
-					<input type="text" name="search" placeholder="To..">
+			  <form>
+					<input id="destination-input" type="text" class="controls" placeholder="Enter a destination location..">
 			  </form>
-			  <button class="button" onclick="directions()">
+			  <button class="button" onclick="AutocompleteDirectionsHandler()">
 				  <i></i>Get Directions
 			  </button>
 			</div>
-			<div style="width: 600px;">
-				<div id="newmap" style="width: 100%; height: 600px;"></div> 
-			<div id="panel" style="width: 300px; float: right;"></div>
 		</div>	
 		<script src="js/sidebar.js"></script>
 		<script src="js/search.js"></script>
 		<script src="js/googlemap.js"></script>
-		<script src="js/favourites.js"></script>
 	</body>
 </html>
