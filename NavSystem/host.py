@@ -1,8 +1,7 @@
-import sqlite3, os, os.path, cherrypy
+import os, os.path, cherrypy
 
 
 class host():
-    conn = sqlite3.connect('navsys.db')
     @cherrypy.expose
     def index(self):
         return open('index.html')
