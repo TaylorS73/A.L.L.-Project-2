@@ -65,6 +65,10 @@ width: 345px;
   .sidenav a {font-size: 18px;}
   .sidenav1 {padding-top: 15px;}
   .sidenav1 a {font-size: 18px;}
+  .sidenav2 {padding-top: 15px;}
+  .sidenav2 a {font-size: 18px;}
+  .search {padding-top: 15px;}
+  .search a {font-size: 18px;}
 }
 input[type=text] {
     width: 275px;
@@ -80,4 +84,103 @@ input[type=text] {
     color: white;
     padding: 12px 24px;
     font-size: 16px;
+}
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s
+}
+.sidenav a:hover, .offcanvas a:focus{
+    color: #f1f1f1;
+}
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+.sidenav1 {
+	height: 100%;
+	width: 0;
+	position: fixed;
+	z-index: 1%;
+	top: 0;
+	left: 50;
+	background-color: #111;
+	overflow-x: hidden;
+	transition: 0.5s;
+	padding-top: 30px;
+}
+.sidenav1 a {
+	padding: 8px 32px 8px 32px;
+	text-decoration: none;
+	font-size: 25px;
+	color: #818181;
+	display: block;
+	transition: 0.3s
+}
+.sidenav1 a:hover, .offcanvas a:focus{
+	color: #f1f1f1;
+}
+.sidenav2 {
+	height: 100%;
+	width: 0;
+	position: fixed;
+	z-index: 1%;
+	top: 0;
+	left: 50;
+	background-color: #111;
+	overflow-x: hidden;
+	transition: 0.5s;
+	padding-top: 30px;
+}
+.sidenav2 a {
+	padding: 8px 32px 8px 32px;
+	text-decoration: none;
+	font-size: 25px;
+	color: #818181;
+	display: block;
+	transition: 0.3s
+}
+.sidenav2 a:hover, .offcanvas a:focus{
+	color: #f1f1f1;
+}
+.search {
+	height: 50px;
+	width: 0;
+	position: fixed;
+	z-index: 1%;
+	top: 50;
+	left: 50;
+	overflow-x: hidden;
+	overflow-y: hidden;
+	transition: 0.5s;
+}
+.search a {
+	padding: 8px 32px 8px 32px;
+	text-decoration: none;
+	color: #818181;
+	display: block;
+	transition: 0.3s;
+	overflow-x: hidden;
+}
+.search a:hover, .offcanvas a:focus{
+	color: #f1f1f1;
+	overflow-x: hidden;
 }

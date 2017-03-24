@@ -11,14 +11,12 @@ My api key is AIzaSyCOKZ9KnQ0OJPf16yB6AnLcFEHdty1rGG4
 		<title>Uni SatNav</title>
 
 		<link rel="shortcut icon" type="image/png" href="res/images/favicon.png"/>
-		<link rel="stylesheet" href="css/sidebar.css">
 		<link rel="stylesheet" href="css/style.css">
 		<link rel="stylesheet" href="css/iconbar.css">
-		<link rel="stylesheet" href="css/search.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><!--imports icon libraries-->
 		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"><!--imports icon libraries-->
 	</head>
-	<body onload="openNav()">
+	<body>
 		<div id="main"><!--map-->
 			<div id="map"></div>
 			<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCOKZ9KnQ0OJPf16yB6AnLcFEHdty1rGG4&libraries=places&callback=initMap"async defer></script>
@@ -27,13 +25,7 @@ My api key is AIzaSyCOKZ9KnQ0OJPf16yB6AnLcFEHdty1rGG4
 			  <div class="active">
 				<a class="fa fa-bars" onclick="Nav()"></a> 
 			  </div>
-			  <a href="#">
-				<i class="fa fa-search"></i>
-				<form id="search" action="#">
-					<div id="label"><label for="search-terms" id="search-label"></label></div>
-					<div id="input"><input type="text" name="search-terms" id="search-terms" placeholder="Enter location..."></div>
-				</form>
-			  </a>
+			  <a href="#" onclick="opensearch1()"><i class="fa fa-search"></i></a>
 			  <a href="#" onclick="opendirect1()"><i class="material-icons" style="font-size:27px">directions</i></a>
 		</div>
 		<div id="main2"class="sidenav"><!--menu-->
@@ -94,8 +86,14 @@ My api key is AIzaSyCOKZ9KnQ0OJPf16yB6AnLcFEHdty1rGG4
 			  <div id="panel" style="background-color:white;"></div>
 			</div>
 		</div>
+		<div id="main2"class="search"><!--search bar-->
+			<div id="search" class="search">
+			  <form>
+					<input id="search-input" type="text" class="controls" placeholder="Search ..." style="width: 400px; height: 50px; background-color:#006bff; font-size: 22px;">
+			  </form>
+			</div>
+		</div>
 		<script src="js/sidebar.js"></script>
-		<script src="js/search.js"></script>
 		<script src="js/googlemap.js"></script>
 	</body>
 </html>
