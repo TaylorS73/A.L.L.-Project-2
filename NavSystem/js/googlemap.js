@@ -57,22 +57,60 @@ function YourLocationButton(map, marker) {
     map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(controlDiv);
 }
 function initMap() {
-    map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 17,
-        center: university,
+	map = new google.maps.Map(document.getElementById('map'), {
+		zoom: 17,
+		center: university,
 		mapTypeControl: false,
-    });
-    var myMarker = new google.maps.Marker({
-        map: map,
-        animation: google.maps.Animation.DROP,
-    });
-    YourLocationButton(map, myMarker);
-	new directions(map);
-	new search(map);
-}
-//$(document).ready(function(e) {
-//    initMap();
-//});
+	});
+	var myMarker = new google.maps.Marker({
+		map: map,
+		animation: google.maps.Animation.DROP,
+	});
+	YourLocationButton(map, myMarker);
+	var input = document.getElementById('pac-input');
+	var searchBox = new google.maps.places.SearchBox(input);
+
+	map.addListener('bounds_changed', function() {
+	  searchBox.setBounds(map.getBounds());
+	});
+
+	var markers = [];
+	searchBox.addListener('places_changed', function() {
+	  var places = searchBox.getPlaces();
+
+	  if (places.length == 0) {
+		return;
+	  }
+
+	  // Clear out the old markers.
+	  markers.forEach(function(marker) {
+		marker.setMap(null);
+	  });
+	  markers = [];
+
+	  // For each place, get the icon, name and location.
+	  var bounds = new google.maps.LatLngBounds();
+	  places.forEach(function(place) {
+		if (!place.geometry) {
+		  console.log("Returned place contains no geometry");
+		  return;
+		}
+		markers.push(new google.maps.Marker({
+		  map: map,
+		  title: place.name,
+		  position: place.geometry.location
+		}));
+		if (place.geometry.viewport) {
+		  // Only geocodes have viewport.
+		  bounds.union(place.geometry.viewport);
+		} else {
+		  bounds.extend(place.geometry.location);
+		}
+	  });
+	  map.fitBounds(bounds);
+	  new directions(map);
+	});
+  }
 
 function directions(map, marker) {
   this.map = map;
@@ -141,68 +179,6 @@ directions.prototype.route = function() {
       me.directionsDisplay.setDirections(response);
     } else {
       window.alert('Directions request failed due to ' + status);
-    }
-  });
-};
-function search(map, marker) {
-  this.map = map;
-  this.originPlaceId = null;
-  this.destinationPlaceId = null;
-  this.travelMode = 'WALKING';
-  var destinationInput = document.getElementById('search-input');
-  this.searchService = new google.maps.searchService;
-  this.searchDisplay = new google.maps.searchRenderer;
-  this.searchDisplay.setMap(map);
-
-  var destinationAutocomplete = new google.maps.places.Autocomplete(destinationInput, {placeIdOnly: true});
-
-  this.setupPlaceChangedListener(destinationAutocomplete, 'DEST');
-
-}
-
-search.prototype.setupClickListener = function(id, mode) {
-  var radioButton = document.getElementById(id);
-  var me = this;
-  radioButton.addEventListener('click', function() {
-    me.travelMode = mode;
-    me.route();
-  });
-};
-
-search.prototype.setupPlaceChangedListener = function(autocomplete, mode) {
-  var me = this;
-  autocomplete.bindTo('bounds', this.map);
-  autocomplete.addListener('place_changed', function() {
-    var place = autocomplete.getPlace();
-    if (!place.place_id) {
-      window.alert("Please select an option from the dropdown list.");
-      return;
-    }
-    if (mode === 'ORIG') {
-      me.originPlaceId = place.place_id;
-    } else {
-      me.destinationPlaceId = place.place_id;
-    }
-    me.route();
-  });
-
-};
-
-search.prototype.route = function() {
-  if (!this.originPlaceId || !this.destinationPlaceId) {
-    return;
-  }
-  var me = this;
-
-  this.searchService.route({
-    origin: {'placeId': this.originPlaceId},
-    destination: {'placeId': this.destinationPlaceId},
-    travelMode: this.travelMode
-  }, function(response, status) {
-    if (status === 'OK') {
-      me.searchDisplay.setsearch(response);
-    } else {
-      window.alert('search request failed due to ' + status);
     }
   });
 };

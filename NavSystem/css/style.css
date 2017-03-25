@@ -93,7 +93,8 @@ input[type=text] {
     top: 0;
     left: 0;
     background-color: #111;
-    overflow-x: hidden;
+	overflow-x: hidden;
+	overflow-y: hidden;
     transition: 0.5s;
     padding-top: 60px;
 }
@@ -108,13 +109,6 @@ input[type=text] {
 .sidenav a:hover, .offcanvas a:focus{
     color: #f1f1f1;
 }
-.sidenav .closebtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
-}
 .sidenav1 {
 	height: 100%;
 	width: 0;
@@ -124,6 +118,7 @@ input[type=text] {
 	left: 50;
 	background-color: #111;
 	overflow-x: hidden;
+	overflow-y: hidden;
 	transition: 0.5s;
 	padding-top: 30px;
 }
@@ -147,6 +142,7 @@ input[type=text] {
 	left: 50;
 	background-color: #111;
 	overflow-x: hidden;
+	overflow-y: hidden;
 	transition: 0.5s;
 	padding-top: 30px;
 }

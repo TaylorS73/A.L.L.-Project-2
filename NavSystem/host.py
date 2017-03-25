@@ -13,12 +13,4 @@ if __name__ == '__main__':
         { 'tools.staticdir.on':True,
           'tools.staticdir.dir': "/css"
         },
- 	'/js':
-	 { 'tools.staticdir.on':True,
-	   'tools.staticdir.dir': "/js"
-	 },
- 	'/res':
-	 { 'tools.staticdir.on':True,
-	   'tools.staticdir.dir': "/res"
-	 },
-     })
+    })

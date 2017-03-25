@@ -80,6 +80,5 @@ function opensearch() {
 }
 function closesearch() {
 	document.getElementById("search").style.width = "0";
-	document.getElementById("main").style.marginLeft= "50px";
 	document.body.style.backgroundColor = "white";
 }
