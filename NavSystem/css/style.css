@@ -142,7 +142,6 @@ input[type=text] {
 	left: 50;
 	background-color: #111;
 	overflow-x: hidden;
-	overflow-y: hidden;
 	transition: 0.5s;
 	padding-top: 30px;
 }
