@@ -1,4 +1,5 @@
 var map;
+var searchbar = document.getElementById('pac-input');
 var university = {lat: 52.407518, lng: -1.504741};
 
 function YourLocationButton(map, marker) {
@@ -67,7 +68,7 @@ function initMap() {
 		animation: google.maps.Animation.DROP,
 	});
 	YourLocationButton(map, myMarker);
-	var input = document.getElementById('pac-input');
+	var input = searchbar;
 	var searchBox = new google.maps.places.SearchBox(input);
 
 	map.addListener('bounds_changed', function() {
@@ -108,8 +109,8 @@ function initMap() {
 		}
 	  });
 	  map.fitBounds(bounds);
-	  new directions(map);
 	});
+	new directions(map);
   }
 
 function directions(map, marker) {
